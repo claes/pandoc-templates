@@ -1,0 +1,41 @@
+#!/bin/sh
+# Wrapper script around pandoc / markdown2pdf 
+# Provides templates to apply with pdf processing
+# Copyright Claes Holmerson 2010, GPL licensed (see COPYING for details)
+
+template_home=/home/claes/projects/pandoc-templates
+paper=a4paper
+hmargin=3cm
+vmargin=3.5cm
+fontsize=10pt
+#fontsize=11pt
+#fontsize=12pt
+mainfont=Cambria
+sansfont=Corbel
+monofont=Consolas
+language=swedish
+nohyphenation=false
+
+columns=onecolumn
+#columns=twocolumn
+
+geometry=portrait
+#geometry=landscape
+
+#alignment=flushleft
+#alignment=flushright
+#alignment=center
+
+#title
+#toc
+#page numbers
+
+markdown2pdf --xetex --template=$template_home/xetex.template \
+-V language=$language -V paper=$paper -V hmargin=$hmargin -V vmargin=$vmargin \
+-V mainfont=$mainfont -V sansfont=$sansfont -V monofont=$monofont \
+-V geometry=$geometry -V alignment=$alignment -V columns=$columns \
+-V fontsize=$fontsize -V nohyphenation=$nohyphenation \
+-V toc=$toc \
+$@
+
+

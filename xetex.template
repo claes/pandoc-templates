@@ -1,0 +1,101 @@
+$if(legacy-header)$
+$legacy-header$
+$else$
+\documentclass[$columns$,$fontsize$]{article}
+\usepackage{amsmath}
+\usepackage[$language$]{babel}
+\usepackage{ifxetex}
+\usepackage[$geometry$,paper=$paper$,hmargin=$hmargin$,vmargin=$vmargin$]{geometry}
+\ifxetex
+  \usepackage{fontspec,xltxtra,xunicode}
+  \setmainfont{$mainfont$}
+  \setsansfont{$sansfont$}
+  \setmonofont{$monofont$}
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+\else
+  \usepackage[mathletters]{ucs}
+  \usepackage[utf8x]{inputenc}
+\fi
+$if(lhs)$
+\usepackage{listings}
+\lstnewenvironment{code}{\lstset{language=Haskell,basicstyle=\small\ttfamily}}{}
+$endif$
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+$endif$
+$if(verbatim-in-note)$
+\usepackage{fancyvrb}
+$endif$
+$if(fancy-enums)$
+\usepackage{enumerate}
+$endif$
+$if(tables)$
+\usepackage{array}
+% This is needed because raggedright in table elements redefines \\:
+\newcommand{\PreserveBackslash}[1]{\let\temp=\\#1\let\\=\temp}
+\let\PBS=\PreserveBackslash
+$endif$
+$if(strikeout)$
+\usepackage[normalem]{ulem}
+$endif$
+$if(subscript)$
+\newcommand{\textsubscr}[1]{\ensuremath{_{\scriptsize\textrm{#1}}}}
+$endif$
+$if(links)$
+\usepackage[breaklinks=true]{hyperref}
+\hypersetup{colorlinks,%
+citecolor=black,%
+filecolor=black,%
+linkcolor=black,%
+urlcolor=black,%
+pdftex}
+}
+$endif$
+$if(url)$
+\usepackage{url}
+$endif$
+$if(graphics)$
+\usepackage{graphicx}
+$endif$
+$if(numbersections)$
+$else$
+\setcounter{secnumdepth}{0}
+$endif$
+$if(verbatim-in-note)$
+\VerbatimFootnotes % allows verbatim text in footnotes
+$endif$
+$for(header-includes)$
+$header-includes$
+$endfor$
+
+$if(title)$
+\title{$title$}
+$endif$
+\author{$for(author)$$author$$sep$\\$endfor$}
+$if(date)$
+\date{$date$}
+$endif$
+
+\begin{document}
+$if(title)$
+\maketitle
+$endif$
+
+$if(toc)$
+\tableofcontents
+
+$endif$
+
+
+$if(alignment)$
+\begin{$alignment$}
+$endif$
+
+$body$
+
+$if(alignment)$
+\end{$alignment$}
+$endif$
+
+
+\end{document}
