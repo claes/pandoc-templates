@@ -3,7 +3,9 @@
 # Provides templates to apply with pdf processing
 # Copyright Claes Holmerson 2010, GPL licensed (see COPYING for details)
 
-template_home=/home/claes/projects/pandoc-templates
+#Find this directory 
+template_home=$(dirname $(readlink -f $0))
+
 paper=a4paper
 hmargin=3cm
 vmargin=3.5cm
@@ -29,10 +31,6 @@ geometry=portrait
 #alignment=flushleft
 #alignment=flushright
 #alignment=center
-
-#title
-#toc
-#page numbers
 
 markdown2pdf --xetex --template=$template_home/xetex.template \
 -V language=$language -V paper=$paper -V hmargin=$hmargin -V vmargin=$vmargin \
