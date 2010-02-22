@@ -44,10 +44,10 @@ $endif$
 $if(links)$
 \usepackage[breaklinks=true]{hyperref}
 \hypersetup{colorlinks,%
-citecolor=black,%
-filecolor=black,%
-linkcolor=black,%
-urlcolor=black,%
+citecolor=blue,%
+filecolor=blue,%
+linkcolor=blue,%
+urlcolor=blue,%
 pdftex}
 }
 $endif$
