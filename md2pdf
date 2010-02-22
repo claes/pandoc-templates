@@ -19,7 +19,8 @@ fontsize=10pt
 mainfont=Georgia
 sansfont=Verdana
 monofont="Courier New"
-language=swedish
+language=english
+#language=swedish
 nohyphenation=false
 
 columns=onecolumn
