@@ -10,9 +10,13 @@ vmargin=3.5cm
 fontsize=10pt
 #fontsize=11pt
 #fontsize=12pt
-mainfont=Cambria
-sansfont=Corbel
-monofont=Consolas
+
+#mainfont=Cambria
+#sansfont=Corbel
+#monofont=Consolas
+mainfont=Georgia
+sansfont=Verdana
+monofont="Courier New"
 language=swedish
 nohyphenation=false
 
@@ -32,7 +36,7 @@ geometry=portrait
 
 markdown2pdf --xetex --template=$template_home/xetex.template \
 -V language=$language -V paper=$paper -V hmargin=$hmargin -V vmargin=$vmargin \
--V mainfont=$mainfont -V sansfont=$sansfont -V monofont=$monofont \
+-V mainfont="$mainfont" -V sansfont="$sansfont" -V monofont="$monofont" \
 -V geometry=$geometry -V alignment=$alignment -V columns=$columns \
 -V fontsize=$fontsize -V nohyphenation=$nohyphenation \
 -V toc=$toc \
