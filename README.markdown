@@ -17,7 +17,7 @@ Requires:
 
 This pdf file was created as follows:
 
-    ./md2pdf README.markdown.txt
+    ./md2pdf README.markdown
 
 `md2pdf` is a simple shell script wrapper that contains variables to set
 font, font size, paper size, language (for hyphenation), margins and a few
